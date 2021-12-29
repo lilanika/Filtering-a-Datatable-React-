@@ -1,22 +1,35 @@
 import React, { useState, useEffect } from "react"
-import "./country.css"
-//import Header from "./components/Header"
+//import "./country.css"
+import Header from "./components/Header"
 import Datatable from "./datatable/Datatable.js"
-import products from './products'
+//import products from './products'
 
 
 require('es6-promise').polyfill()
-//require('isomorphic-fetch')
+require('isomorphic-fetch')
+
 
 const App = () => {
-
 
   const [data, setData] = useState([]);
   const [q, setQ] = useState('');
   const [searchColumns, setSearchColumns] = useState([
     'name',
-   
+    'birth_year',
   ]);
+
+
+  useEffect(() => {
+    fetch('https://swapi.dev/api/people')
+  
+      .then((response) => response.json())
+   
+      .then((json) => setData(json.results));
+  }, []);
+
+
+
+  
 
   function search(rows) {
     return rows.filter((row) =>
@@ -29,36 +42,36 @@ const App = () => {
       ),
     );
   }
-  
-  useEffect(() => {
-    //we want to make a fetch req to get the Api Data
 
-   setData(products);
-  
-    }, [])
 
 
   const columns = data[0] && Object.keys(data[0]);
   return (
-    <div>
-      <div>
-        <input
+    <div  >
+    <Header/>
+      <div className='m-3' >
+        <input 
           type='text'
+        
+
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
         {columns &&
           columns.map((column) => (
-            <label>
-              <input
+            <label >
+          
+              <input className="flexbox checkmark"
                 type='checkbox'
+                
                 checked={searchColumns.includes(column)}
+
                 onChange={(e) => {
                   const checked = searchColumns.includes(column);
-                  setSearchColumns((prev) =>
+                  setSearchColumns((previousState) =>
                     checked
-                      ? prev.filter((sc) => sc !== column)
-                      : [...prev, column],
+                      ? previousState.filter((searchColumn) => searchColumn!== column)
+                      : [...previousState, column],
                   );
                 }}
               />
@@ -66,8 +79,8 @@ const App = () => {
             </label>
           ))}
       </div>
-      <div>
-        <Datatable data={search(products)} />
+      <div className="datatable">
+        <Datatable data={search(data)} />
       </div>
     </div>
   )

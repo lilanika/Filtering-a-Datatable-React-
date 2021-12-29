@@ -18,17 +18,13 @@ const Header = () => {
 
   return (
     <>
-      <header className="header">
-        <div>
-          <h1>Where in the world?</h1>
-        </div>
-
-        <div>
-          <button className="btn" onClick={() => changeTheme()}>
-            <i className="fas fa-moon"></i>
-          </button>
-        </div>
+    <header className= "m-3">  
+    <i class="fas fa-dragon fa-2x"></i>
+     <h1>Datatable</h1>
+  
+   
       </header>
+
     </>
   )
 }

@@ -1,58 +1,22 @@
 import React, { useState, useEffect } from "react"
-import "./country.css"
+//import "./country.css"
 //import Header from "./components/Header"
 import Datatable from "./datatable/Datatable.js"
 import products from './products'
 
 
-//require('es6-promise').polyfill()
-//require('isomorphic-fetch')
+require('es6-promise').polyfill()
+require('isomorphic-fetch')
 
 const App = () => {
-  const [data, setData] = useState([])
-  const [q, setQ] = useState('')
 
 
-  useEffect(() => {
-    //we want to make a fetch req to get the Api Data
-    const fetchData = async () => {
-      const response = await fetch(
-        `https://restcountries.com/v2/all`
-      )
-      const data = await response.json()
-      setData(data)
-      console.log(data)
-    }
-
-    fetchData()
-  }, [])
-  
-
-  return (
-    <>
-     
-    <div>
-      <Datatable data={products}></Datatable>
-    </div>
-</>
-  )
-}
-
-export default App
-
-
-/* const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   const [q, setQ] = useState('');
   const [searchColumns, setSearchColumns] = useState([
     'name',
-    'birth_year',
+   
   ]);
-
-  useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all')
-      .then((response) => response.json())
-      .then((json) => setData(json.results));
-  }, []);
 
   function search(rows) {
     return rows.filter((row) =>
@@ -65,6 +29,14 @@ export default App
       ),
     );
   }
+  
+  useEffect(() => {
+    //we want to make a fetch req to get the Api Data
+
+   setData(products);
+  
+    }, [])
+
 
   const columns = data[0] && Object.keys(data[0]);
   return (
@@ -95,7 +67,10 @@ export default App
           ))}
       </div>
       <div>
-        <Datatable data={search(data)} />
+        <Datatable data={search(products)} />
       </div>
     </div>
-  );*/
+  )
+}
+
+export default App

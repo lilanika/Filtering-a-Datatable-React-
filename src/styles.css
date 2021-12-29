@@ -1,18 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Poppins:ital,wght@0,400;0,700;0,800;0,900;1,700&display=swap');
+
 :root {
-  font-size: 14px;
+  --primary-color:#19446F;
+
 }
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color:var(--light-color);
+  color:  var(--primary-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+
+h1 {
+  color: #f35999;
+  display: inline-block;
+  margin-left:0.3rem;
+}
+
+i {
+  color:#fd7e14;
+  
+}
+
+.flexbox { 
+  display:  inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0.5rem;
+  padding:2rem;
+  flex-direction: row;
+  
+}
+
+.m-3 {
+  margin:2rem;
+}
+
 
 .thead,
 tr {
-  background-color: honeydew;
+  background-color: rgb(249, 246, 255);
+  margin:2rem
 }
 
 .tr,
 th {
   white-space: nowrap;
-  padding: 1rem;
+  padding: 2rem;
   text-align: left;
-  background-color: honeydew;
+  background-color: rgb(239, 236, 247);
+  margin:2rem;
 }
 
 tbody,
@@ -24,7 +78,7 @@ tr:nth-child(odd) {
 tr,
 td {
   white-space: nowrap;
-  width: 20%;
   overflow-wrap: break-word;
-  padding: 0.5rem;
+  padding: 2rem;
 }
+
