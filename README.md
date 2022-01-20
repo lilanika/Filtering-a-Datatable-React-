@@ -5,4 +5,4 @@
 
 #### how to create a dynamic data table with filter
 #### Tutorial by: https://www.youtube.com/watch?v=d1r0aK5awWk
-#### deployed: filter-datatable.netlify.app
+#### deployed: https://filter-datatable.netlify.app/
